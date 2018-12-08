@@ -1,0 +1,21 @@
+{
+  "eventRegistryApiKey": "",
+  "manualBlackListFilePath": "..\\sampleData\\input\\manualBlackList.txt",
+  "articlesFilesPath": "..\\sampleData\\input\\DumpArticles-000",
+  "articlesFilesOffset":0,
+  "articlesFilesThreshold": 1,
+  "eventsFilesPath":  "..\\sampleData\\input\\DumpEvents-000",
+  "eventsFilesOffset": 0,
+  "eventsFilesThreshold": 1,
+  "outputDir": "..\\sampleData\\output\\",
+  "autoBlackListFileName": "autoBlackList.jsonl",
+  "clusterNamesFileName":"clusterNames",
+  "eventsFileName": "events_",
+  "conceptsFileName": "concepts_",
+  "nodesFileName": "nodes_",
+  "characteristicsFileName": "characteristics_",
+  "datesFileName":"dates_",
+  "NTopics": 1,
+  "fromDate": "2014-01-07",
+  "toDate": "2014-05-04"
+}

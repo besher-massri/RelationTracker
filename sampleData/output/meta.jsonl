@@ -1,0 +1,19 @@
+{
+	"Events summary": {
+		"Total clustered events": 15,
+		"Total events": 15,
+		"Total events with no non-entity non-filtered concepts": 0,
+		"Total filtered events from clustering": 0
+	},
+	"Concepts summary": {
+		"TOTAL filtered items by AUTO blacklist": 0,
+		"TOTAL filtered items by MANUAL blacklist": 6,
+		"Total concepts": 591,
+		"Total entity concepts": 145,
+		"Total location concepts": 140,
+		"Total non-entity concepts": 300,
+		"UNIQUE filtered items by AUTO blacklist": 0,
+		"UNIQUE filtered items by MANUAL blacklist": 3,
+		"UNIQUE non-entity concepts": 253
+	}
+}

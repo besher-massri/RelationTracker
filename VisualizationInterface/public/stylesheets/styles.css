@@ -1,0 +1,344 @@
+/*
+     divs sizes
+*/
+#loading-div {
+  width: 250px;
+  height: 250px;
+}
+
+#cluster-chooser-div,
+#graph-div {
+  width: 1200px;
+}
+
+#layouts-panel,
+#slider-div,
+.toolbox-div {
+  width: 900px;
+}
+
+.panel.with-nav-tabs.panel-info /*#info-div,#layouts-panel */ {
+  height: 550px;
+}
+
+#info-div .panel-info,
+#info-div .info-content {
+  width: 295px;
+  height: auto;
+  left: 10px;
+}
+
+#info-div #entity-input {
+  width: 250px;
+}
+
+#canvas-div,
+#cloud-div,
+#cloud2-div,
+#cloud3-div,
+#stream-div {
+  height: 450px;
+  width: 890px;
+}
+
+#slider-slider-part-div {
+  height: 100px;
+  width: 850px;
+  display: inline-block;
+}
+
+.toolbox-subdiv,
+toolbox-div {
+  height: 30px;
+}
+/*
+  main divs positions
+*/
+#cluster-chooser-div {
+  background-color: rgb(210, 216, 224);
+  padding: 0px;
+  display: inline-block;
+}
+
+.panel.with-nav-tabs.panel-info, #info-div {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 0px;
+}
+
+
+#layouts-panel {
+  display: inline-block;
+  margin-bottom: 0px !important;
+}
+
+/*
+    searchbar for cluster name
+*/
+#cluster-chooser-div span {
+  font-size: medium;
+  text-align: center;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+#entity-input,
+#non-entity-input,
+#non-entity-cluster-input,
+#cluster-input {
+  border: 1px solid transparent;
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+
+    .autocomplete-items div:hover {
+      /*when hovering an item:*/
+      background-color: #e9e9e9;
+    }
+
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+/* 
+    info summary part styles
+*/
+#layouts-panel .panel-body {
+  padding: 0px 0px 0px 0px !important;
+}
+
+#tags-elements {
+  display: inline;
+  background: #0ca1c0;
+  color: #fff;
+  font-size: 12px;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  margin: 0 5px 0 0;
+  padding: 3px 5px 5px 5px;
+  white-space: nowrap;
+}
+  #tags-elements a:hover {
+    background: #09748a;
+  }
+
+ul {
+  margin-left: 0px !important;
+}
+  ul li a {
+    font-size: 12px;
+  }
+
+/*** PANEL INFO ***/
+.with-nav-tabs.panel-info .nav-tabs > li > a,
+.with-nav-tabs.panel-info .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > li > a:focus {
+  color: #31708f;
+}
+  .with-nav-tabs.panel-info .nav-tabs > .open > a,
+  .with-nav-tabs.panel-info .nav-tabs > .open > a:hover,
+  .with-nav-tabs.panel-info .nav-tabs > .open > a:focus,
+  .with-nav-tabs.panel-info .nav-tabs > li > a:hover,
+  .with-nav-tabs.panel-info .nav-tabs > li > a:focus {
+    color: #31708f;
+    background-color: #bce8f1;
+    border-color: transparent;
+  }
+.with-nav-tabs.panel-info .nav-tabs > li.active > a,
+.with-nav-tabs.panel-info .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-info .nav-tabs > li.active > a:focus {
+  color: #31708f;
+  background-color: #fff;
+  border-color: #bce8f1;
+  border-bottom-color: transparent;
+}
+
+div.top-events-div text {
+  display: inline;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  width: 100px !important;
+  word-wrap: break-word !important;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background-color: #5bc0de !important;
+}
+div.tab-pane span.uri-span {
+  display: inline;
+  background: #fff;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  width: 320px !important;
+  word-wrap: break-word !important
+}
+
+/*
+* slider object
+*/
+.ticks {
+  font: 10px sans-serif;
+}
+
+.track,
+.track-inset,
+.track-overlay {
+  stroke-linecap: round;
+}
+
+.track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px;
+}
+
+.track-inset {
+  stroke: #ddd;
+  stroke-width: 8px;
+}
+
+.track-inset-interval {
+  stroke: blue;
+  stroke-width: 8px;
+}
+
+.track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+}
+
+.handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px;
+  cursor: crosshair;
+}
+
+
+.next-prev-button {
+  vertical-align: top !important;
+  margin-top: 8px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  width: 15px;
+  padding: 0px 0px 0px 0px !important;
+}
+/*
+    toolbox styles
+*/
+
+.toolbox-div {
+  vertical-align: top;
+  display: inline-block;
+  opacity: 0;
+  font-size: 14px !important;
+  margin: 0px 0px 2px 0px !important;
+  padding: 0px 0px 0px 10px !important;
+}
+
+.toolbox-subdiv {
+  margin: 0px 0px 0px 0px !important;
+  padding: 0px 10px 0px 10px !important;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+  .toolbox-subdiv p {
+    font-size: 14px !important;
+    display: inline-block;
+  }
+
+  .toolbox-subdiv button {
+    display: inline-block;
+  }
+
+
+/* for tag cloud*/
+.x.axis path {
+  display: none;
+}
+
+/*
+    stream graph chart
+*/
+
+.chart p {
+  font: 12px helvetica;
+}
+
+
+.chart .axis path, .chart .axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+
+/*
+    loading sign
+*/
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 960px;
+  height: 500px;
+  position: relative;
+}
+form {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+path {
+  fill-rule: evenodd;
+  stroke: #333;
+  stroke-width: 2px;
+}
+.sun path {
+  fill: #6baed6;
+}
+.planet path {
+  fill: #9ecae1;
+}
+.annulus path {
+  fill: #c6dbef;
+}

@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link href="stylesheets/styles.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<div id="graph-div" style="margin-left:70px">
+  <div id="cluster-chooser-div" class="well">
+    <div class="autocomplete">
+      <div class="autocomplete">
+        <input id="cluster-input" type="text" placeholder="Cluster Selection">
+      </div>
+    </div>
+    <span id="cluster-name" class="label label-primary"></span>
+  </div>
+
+  <div id="layouts-panel" class="panel with-nav-tabs panel-info">
+    <div class="panel-heading">
+      <ul class="nav nav-tabs">
+        <li id="network-graph-tab" class="active layout-tab"><a data-toggle="tab">Network Graph</a></li>
+        <li id="tag-cloud-tab" class="layout-tab"><a data-toggle="tab">Tag Cloud</a></li>
+        <li id="stream-graph-tab" class="layout-tab"><a data-toggle="tab">Stream Graph</a></li>
+      </ul>
+    </div>
+    <div class="panel-body tab-content">
+      <div id="network-graph-content" class="tab-pane fade in active layout-content">
+        <div id="canvas-div"></div>
+      </div>
+      <div id="tag-cloud-content" class="tab-pane fade in layout-content" style="display:none; ">
+        <div id="cloud-div" style="background-color:transparent; border-color:transparent"></div>
+      </div>
+      <div id="stream-graph-content" class="tab-pane fade in layout-content" style="display:none;">
+        <div id="stream-div" style="display:none;"></div>
+      </div>
+    </div>
+    <div id="slider-div" style="display:none">
+      <div id="slider-operations-toolbox-div" class="toolbox-div well">
+        <div class="well toolbox-subdiv" style="background-color: antiquewhite">
+          <input id="single-mode-radiobutton" type="radio" name="mode" value="Single" checked="checked">Point
+          <input id="interval-mode-radiobutton" type="radio" name="mode" value="Interval">Interval
+
+        </div>
+        <div class="well toolbox-subdiv" style="background-color:lavender;">
+
+          <input id="monthly-scale-radiobutton" type="radio" name="scale" value="Monthly">Monthly
+          <input id="weekly-scale-radiobutton" type="radio" name="scale" value="Weekly">Weekly
+          <input id="daily-scale-radiobutton" type="radio" name="scale" value="Daily" checked="checked">Daily
+        </div>
+        <div class="well toolbox-subdiv" style="background-color:antiquewhite;">
+          <p>Sliding Value  </p>
+          <input id="sliding-value" style="width:50px;"
+                 type="number" min="1" max="50" value="1" name="sliding-value" />
+          <button id="magnify-button">
+            Magnify
+          </button>
+          <button id="cancel-magnify-button" style="opacity:0;"
+                  disabled="disabled">
+            Cancel
+          </button>
+        </div>
+        <div class="well toolbox-subdiv" style="background-color:lavender; width:190px;">
+          <p id="interval-date-info"></p>
+        </div>
+      </div>
+      <div>
+        <button id="prev-date-button" class="btn btn-primary next-prev-button">
+          <
+        </button>
+        <div id="slider-slider-part-div"></div>
+        <button id="next-date-button" class="btn btn-primary next-prev-button">
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="info-div">
+    <div class="panel with-nav-tabs panel-info">
+      <div class="panel-heading">
+        <ul class="nav nav-tabs">
+          <li id="node-tracker-tab" class="info-tabs active" style="display:inline-block"><a data-toggle="tab">Graph Options</a></li>
+          <li id="first-node-summary-tab" class="info-tabs"><a data-toggle="tab">Entity Summary</a></li>
+          <li id="second-node-summary-tab" class="info-tabs" style="display:none"><a data-toggle="tab">Entity2 Summary</a></li>
+          <li id="pair-relationship-summary-tab" class="info-tabs" style="display:none"><a data-toggle="tab">Pair Relationship Summary</a></li>
+        </ul>
+      </div>
+      <div class="panel-body tab-content">
+        <div id="node-tracker-content" class="info-content tab-pane fade in active"
+             style="display:inline-block">
+          <div style="width:250px !important">
+            <div>
+              <span class="label label-primary">Max N.nodes to track</span>
+              <input id="node-threshold-input" type="number" min="1" style="vertical-align:top; width:40px">
+            </div>
+            <br />
+            <div>
+              <span class="label label-primary">Min N.events per link</span>
+              <input id="edge-threshold-input" type="number" min="1" style="vertical-align:top; width:40px;">
+            </div>
+            <br />
+            <button id="update-entities-options-button" class="btn btn-block btn-warning">Update Graph!</button>
+            <br /><br />
+            <span class="label label-primary" style="font-size:16px; width:100% !important; display:block">Fixing Entities</span>
+            <br />
+            <div class="autocomplete">
+              <input id="entity-input" type="text" placeholder="Entity Selection">
+            </div>
+            <div>
+              <input type="checkbox" id="track-only-checkbox" name="track" />
+              <label for="track-only">Only those entities</label>
+              <br />
+              <button id="track-button" class="btn btn-block btn-warning">Track!</button>
+              <button id="cancel-track-button" class="btn btn-block btn-warning" style="display:none">Cancel tracking</button>
+            </div>
+            <div id="fixed-nodes-div"> </div>
+          </div>
+        </div>
+        <div id="first-node-summary-content" class="info-content tab-pane fade in"
+             style="display:none">
+          <div style="width:250px !important">
+            <button id="tab1-add-to-track-button" class="btn btn-warning add-to-track-button" style="display:none">Add to tracking list</button>
+            <br />
+            <span class="label label-primary">Name</span>
+            <span id="tab1-title-span" class="label label-info"></span>
+            <br /><br />
+            <span class="label label-primary">Type</span>
+            <span id="tab1-type-span" class="label label-info"></span>
+            <br /><br />
+            <span class="label label-primary">URI</span>
+            <span id="tab1-uri-span" class="uri-span"></span>
+            <br />
+            <span class="label label-primary">N.events mentioned in</span>
+            <span id="tab1-num-events-span" class="label label-info"></span>
+            <br />
+            <span class="label label-primary">N.articles mentioned in</span>
+            <span id="tab1-num-articles-span" class="label label-info"></span>
+            <br /><br />
+            <div>
+              <span class="label label-primary">Top Events</span>
+              <br />
+              <div id="tab1-top-events-div" class="top-events-div">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="second-node-summary-content" class="info-content tab-pane fade in" style="display:none;">
+          <div style="width:250px !important">
+            <button id="tab2-add-to-track-button" class="btn btn-warning add-to-track-button" style="display:none">Add to tracking list</button>
+            <br />
+            <span class="label label-primary">Name</span>
+            <span id="tab2-title-span" class="label label-info"></span>
+            <br /><br />
+            <span class="label label-primary">Type</span>
+            <span id="tab2-type-span" class="label label-info"></span>
+            <br /><br />
+            <span class="label label-primary">URI</span>
+            <span id="tab2-uri-span" class="uri-span"></span>
+            <br />
+            <span class="label label-primary">N.events mentioned in</span>
+            <span id="tab2-num-events-span" class="label label-info"></span>
+            <br />
+            <span class="label label-primary">N.articles mentioned in</span>
+            <span id="tab2-num-articles-span" class="label label-info"></span>
+            <br /><br />
+            <div>
+              <span class="label label-primary">Top Events</span>
+              <br />
+              <div id="tab2-top-events-div" class="top-events-div">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="pair-relationship-summary-content" class="info-content tab-pane fade in">
+          <div style="width:250px !important">
+            <span id="title1-span" class="label label-info node-summary-info"></span>
+            <span id="type1-span" class="label label-info node-summary-info"></span>
+            <br /><br />
+            <span id="title2-span" class="label label-info node-summary-info"></span>
+            <span id="type2-span" class="label label-info node-summary-info"></span>
+            <br /><br />
+            <span class="label label-primary">N.shared events</span>
+            <span id="n-shared-events" class="label "></span>
+            <br /><br />
+            <span class="label label-primary">N.articles mentioned in</span>
+            <span id="pair-num-articles-span" class="label label-info"></span>
+            <br /><br />
+
+            <div>
+              <span class="label label-primary">Top Events</span>
+              <br />
+              <div id="pair-top-events-div" class="top-events-div">
+              </div>
+            </div>
+            <span id="top-shared-non-entity-concepts" class="label label-primary"
+                  style="display:none">Top Shared Characterstics</span>
+            <br />
+            <div id="tags-div" class="uri-span"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br /><br /><br /><br />
+  <div id="cloud2-div" style="background-color:transparent; border-color:transparent; display:none"></div>
+  <br /><br /><br /><br /><br /><br /><br /><br />
+  <div id="cloud3-div" style="background-color:transparent; border-color:transparent; display:none"></div>
+</div>
+
+<script src="javascripts/d3.v4.min.js"></script>
+<script src="javascripts/searchbar.js"></script>
+<script src="javascripts/dataprocessor.js"></script>
+<script src="javascripts/streamgraph.js"></script>
+<script src="javascripts/slider.js"></script>
+<script src="javascripts/networkgraph.js"></script>
+<script src="javascripts/tagcloud.js"></script>
+<script src="javascripts/interfaceactionshandler.js"></script>
+<script src="javascripts/relationtracker.js"></script>
+
+
+<script type="text/javascript">
+  (new RelationTracker()).startProgram();
+</script>

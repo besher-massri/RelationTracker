@@ -1,0 +1,3 @@
+(newspaper)
+(news agency)
+(TV channel)

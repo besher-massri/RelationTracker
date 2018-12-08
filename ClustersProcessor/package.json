@@ -1,0 +1,9 @@
+{
+  "name": "clusters-processor",
+  "version": "1.0.0",
+  "main": "clustersprocessor.js",
+  "private": true,
+  "dependencies": {
+    "request": "~2.88.0"
+  }
+}
