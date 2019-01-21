@@ -1,5 +1,5 @@
 # RelationTracker
-> [Project Website](http://connection.ijs.si)
+
 
 Relation Tracker is a tool that tracks main entities [people and organizations] within each topic through time.
 The main types of relations between the entities are detected and observed in time. The tool provides multiple ways of visualizing this information with different scales and durations.
